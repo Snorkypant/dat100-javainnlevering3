@@ -204,7 +204,7 @@ Implementer en metode `public int[] search(String user, String ord)` som returne
 
 For å løse denne oppgaven anbefales det å lese avsnitt 7.1 og 7.4 i java-boken og se på notater fra forelesninger om filer og om unntak. Denne oppgaven samt oppgave 5 nedenfor er også relatert til:
 
-https://github.com/dat100hib/dat100public/blob/master/programmering/jplab10/JP10.md#oppgave-1---filer-og-unntak
+https://github.com/dat100hib/dat100public/blob/master/programmering/jplab11/JP11.md#oppgave-1---filer-og-unntak
 
 Implementer følgende metode i klassen `SkrivBlogg.java`:
 
