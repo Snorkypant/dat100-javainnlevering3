@@ -5,8 +5,8 @@ import no.hvl.dat100.common.TODO;
 public abstract class Innlegg {
 
 
-	private int id, likes;
-	private String dato, bruker;
+	protected int id, likes;
+	protected String dato, bruker;
 	
 	public Innlegg(int id, String bruker, String dato) {
 
@@ -61,7 +61,7 @@ public abstract class Innlegg {
 	
 	@Override
 	public String toString() {
-		return this.id + "\n"+this.bruker+"\n"+this.dato+"\n"+this.likes;
+		return this.id + "\n"+this.bruker+"\n"+this.dato+"\n"+this.likes+"\n";
 	}
 	
 	// Metoden nedenfor er kun for valgfri oppgave 6

@@ -10,6 +10,7 @@ public class Tekst extends Innlegg {
 	public Tekst(int id, String bruker, String dato, String tekst) {
 		super(id,bruker,dato);
 		this.tekst =tekst;
+		this.likes = 0;
 	}
 	
 	public Tekst(int id, String bruker, String dato, int likes, String tekst) {
@@ -28,7 +29,7 @@ public class Tekst extends Innlegg {
 
 	@Override
 	public String toString() {
-		return getId()+"\n"+getBruker()+"\n"+getDato()+"\n"+getLikes()+"\n"+getTekst();}
+		return "TEKST\n" +getId()+"\n"+getBruker()+"\n"+getDato()+"\n"+getLikes()+"\n"+getTekst()+"\n";}
 	
 	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {

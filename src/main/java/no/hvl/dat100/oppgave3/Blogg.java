@@ -7,49 +7,40 @@ public class Blogg {
 
 	// TODO: objektvariable
 
-	private Innlegg[] blogg;
+	private Innlegg[] samling;
 	int amount;
 
 
 	public Blogg() {
-		Innlegg[] blogg = new Innlegg[20];
+
+		this.samling = new Innlegg[20];
+		this.amount = 0;
 	}
 
 	public Blogg(int lengde) {
 
-		Innlegg[] blogg = new Innlegg[lengde];
+		this.samling = new Innlegg[lengde];
+		this.amount = 0;
 	}
 
 	public int getAntall() {
-		int count= 0;
-		for(Innlegg i: blogg){
-			if(i != null){
-				count++;
-			}
-		}
-		return count;
+
+		return amount;
 	}
 	
 	public Innlegg[] getSamling() {
-		return this.blogg;
+		return samling;
 
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
-		boolean funnet = true;
-		int i = 0;
 		int id = innlegg.getId();
-		while(!funnet){
-			if(i <= blogg.length) {
-				if (id == blogg[i].getId()) {
-					funnet = true;
-				} else {
-					i++;
-				}
-			}else {return -1;}
+		for(int i = 0;i<amount;i++){
+			if (samling[i].getId() == id){
+				return i;
+			}
 		}
-		return i;
-
+		return -1;
 	}
 
 	public boolean finnes(Innlegg innlegg) {
@@ -61,7 +52,7 @@ public class Blogg {
 	}
 
 	public boolean ledigPlass() {
-		if (getAntall() < blogg.length){
+		if (getAntall() < samling.length){
 			return true;
 		} else{
 			return false;
@@ -73,7 +64,8 @@ public class Blogg {
 
 		if (ledigPlass()) {
 			if (!finnes(innlegg)) {
-				blogg[amount] = innlegg;
+				samling[amount] = innlegg;
+				amount ++;
 				return true;
 			}
 		}
@@ -82,9 +74,9 @@ public class Blogg {
 	
 	public String toString() {
 		String returnString = "";
-		returnString += getAntall();
+		returnString += getAntall()+"\n";
 		for(int i = 0; i<getAntall();i++){
-			returnString += blogg[i].toString();
+			returnString += samling[i].toString();
 		}
 		return returnString;
 	}

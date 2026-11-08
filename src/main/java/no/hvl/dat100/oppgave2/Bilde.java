@@ -5,10 +5,12 @@ import no.hvl.dat100.common.TODO;
 public class Bilde extends Tekst {
 
 	private String url;
-	
+
 	public Bilde(int id, String bruker, String dato, String tekst, String url) {
 		super(id, bruker, dato, tekst);
 		this.url=url;
+		this.likes = 0;
+
 	}
 
 	public Bilde(int id, String bruker, String dato, int likes, String tekst, String url) {
@@ -27,7 +29,7 @@ public class Bilde extends Tekst {
 
 	@Override
 	public String toString() {
-		return getId()+"\n"+getBruker()+"\n"+getDato()+"\n"+getLikes()+"\n"+getTekst()+"\n"+getUrl();
+		return "BILDE\n"+getId()+"\n"+getBruker()+"\n"+getDato()+"\n"+getLikes()+"\n"+getTekst()+"\n"+getUrl()+"\n";
 
 	}
 
