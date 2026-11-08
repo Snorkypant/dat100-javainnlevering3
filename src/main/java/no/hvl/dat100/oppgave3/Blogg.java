@@ -5,46 +5,88 @@ import no.hvl.dat100.oppgave1.*;
 
 public class Blogg {
 
-	// TODO: objektvariable 
+	// TODO: objektvariable
+
+	private Innlegg[] blogg;
+	int amount;
+
 
 	public Blogg() {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		Innlegg[] blogg = new Innlegg[20];
 	}
 
 	public Blogg(int lengde) {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+
+		Innlegg[] blogg = new Innlegg[lengde];
 	}
 
 	public int getAntall() {
-		throw new UnsupportedOperationException(TODO.method());
+		int count= 0;
+		for(Innlegg i: blogg){
+			if(i != null){
+				count++;
+			}
+		}
+		return count;
 	}
 	
 	public Innlegg[] getSamling() {
-		throw new UnsupportedOperationException(TODO.method());
+		return this.blogg;
 
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
+		boolean funnet = true;
+		int i = 0;
+		int id = innlegg.getId();
+		while(!funnet){
+			if(i <= blogg.length) {
+				if (id == blogg[i].getId()) {
+					funnet = true;
+				} else {
+					i++;
+				}
+			}else {return -1;}
+		}
+		return i;
 
-		throw new UnsupportedOperationException(TODO.method());
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		throw new UnsupportedOperationException(TODO.method());
+		if(finnInnlegg(innlegg) >= 0){
+			return true;
+		} else{
+			return false;
+		}
 	}
 
 	public boolean ledigPlass() {
-		throw new UnsupportedOperationException(TODO.method());
+		if (getAntall() < blogg.length){
+			return true;
+		} else{
+			return false;
+		}
 
 	}
 	
 	public boolean leggTil(Innlegg innlegg) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		if (ledigPlass()) {
+			if (!finnes(innlegg)) {
+				blogg[amount] = innlegg;
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		String returnString = "";
+		returnString += getAntall();
+		for(int i = 0; i<getAntall();i++){
+			returnString += blogg[i].toString();
+		}
+		return returnString;
 	}
 
 	// valgfrie oppgaver nedenfor
